@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background-image: url('/bgimg.png');
+    /* Background image path */
+    background-size: cover;
+    /* Cover the entire background */
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333;
+    /* Dark gray text color */
+    position: relative;
+}
+
+
+main h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 9vw;
+    /* Adjust font size */
+    font-weight: 600;
+    color: #ffffff;
+    /* White color */
+    text-shadow: 2px 2px 4px #000000;
+    /* Text shadow for effect */
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main h1 .highlight {
+    color: #f84250;
+    /* Vibrant red color for 'A' */
+}
+
+.login-container {
+    background-color: rgba(242, 231, 231, 0.907);
+    /* Slightly transparent white background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Box shadow for a 3D effect */
+    padding: 30px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    /* Dark gray text color */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    /* Increased padding */
+    margin-bottom: 20px;
+    border: 2px solid #666;
+    /* Medium gray border color */
+    border-radius: 8px;
+    /* Increased border radius */
+    outline: none;
+    /* Remove outline */
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #333;
+    /* Dark gray color on focus */
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}

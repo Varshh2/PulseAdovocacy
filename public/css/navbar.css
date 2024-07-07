@@ -1,0 +1,86 @@
+
+.navbar {
+    color: #fff;
+    width: 100%;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 38px !important;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.highlight {
+    color: #f84250;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    position: relative;
+    gap: 20px;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+    height: 0% !important;
+}
+
+.content-box {
+    background-color: transparent;
+    color: #333;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    height: 200px;
+    position: relative;
+}
+
+
+/* Custom CSS to set navbar links to white */
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+}
+
+.footer {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    color: #ffffff; /* Change the color as needed */
+    transition: color 0.3s ease;
+    padding: 0;
+}
+.navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust the distance from the text */
+    left: 0;
+    width: 0%;
+    height: 2px; /* Adjust the thickness of the underline */
+    /* background-color: #ff7878;
+    background-image: linear-gradient(315deg, #ff7878 0%, #ff0000 74%); */
+    background: linear-gradient(102.2deg, rgb(250, 45, 66) 9.6%, rgb(245, 104, 104) 96.1%);
+    transition: width 0.3s ease;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff; /* Change the color as needed */
+}
+.navbar-nav .nav-item .nav-link:hover::after {
+    width: 100%;
+}
+

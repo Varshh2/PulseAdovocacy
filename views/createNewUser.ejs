@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #4a154b; /* Deep purple background */
+            color: #fff; /* Light text color */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for a 3D effect */
+            padding: 30px;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 50px; /* Adjust as needed */
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333; /* Dark gray text color */
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #fff; /* White border */
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #ff8000; /* Vibrant orange color for buttons */
+            border: none;
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+        }
+        .btn:hover {
+            background-color: #cc6600; /* Darker orange color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create New User</h1>
+        <form action="/subscribedUsers/create" method="POST"> <!-- Corrected action -->
+            <input type="text" name="firstName" placeholder="First Name" required><br>
+            <input type="text" name="lastName" placeholder="Last Name" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="text" name="address1" placeholder="Address Line 1" required><br>
+            <input type="text" name="address2" placeholder="Address Line 2"><br>
+            <input type="text" name="city" placeholder="City" required><br>
+            <input type="text" name="pincode" placeholder="Pincode" required><br>
+            <input type="text" name="country" placeholder="Country" required><br>
+            <button type="submit" class="btn">Create User</button>
+        </form>
+    </div>
+</body>
+</html>

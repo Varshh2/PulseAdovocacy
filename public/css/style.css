@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+#background {
+    width: 100%;
+    height: 100vh;
+    background: url('/bgimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(2px);
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+    z-index: 9999;
+    position: relative;
+}
+
+
+.middle-container {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.553);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 250px);
+
+}
+
+/* Additional styles for campaign list */
+.campaign-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.campaign-list li {
+    margin-bottom: 10px;
+}
+
+#middle-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Dashboard page css */
+
+.content-wrapper {
+    width: 80%;
+    height: 100%;
+    border-radius: 16px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camp-card {
+    width: 350px;
+    height: 400px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.camp-card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 50px;
+}
+
+.camp-card-inner .icon {
+    font-size: 3.5vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.camp-card-inner .icon i {
+    color: #f65d63;
+    transition: all .5s ease-in-out;
+}
+
+.campcard-body h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -5px;
+}
+
+.campcard-body h2 {
+    font-size: 1.6rem;
+}
+
+.camp-card:hover {
+    transform: scale(1.04) rotate(1deg);
+}
+
+.camp-card:hover .camp-card-inner .icon i {
+    transform: scale(1) rotate(360deg);
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(102.2deg, rgb(250, 45, 66) 9.6%, rgb(245, 104, 104) 96.1%);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+    top: -25px;
+    left: -25px;
+}
+
+.circle:nth-child(2) {
+    bottom: -25px;
+    right: -25px;
+    animation-name: move-down1;
+}
+
+#underline {
+    position: relative;
+    width: 100%;
+    color: #fff;
+}
+
+#underline::after {
+    content: "";
+    background-color: #fff;
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: -10%;
+    left: -100%;
+    transition: all 0.5s ease-in-out;
+}
+
+#underline::before {
+    content: "";
+    background-color: #f65d63;
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+#underline:hover::after,
+#underline:hover::before {
+    width: 100%;
+}
+
+@keyframes move-up6 {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes move-down1 {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+
+/* Campaign page css */
+
+.camp-container,
+.legis-container,
+.subuser-container,
+.createCamp-container {
+    /* background-color: rgba(255, 255, 255, 0.553); */
+    width: 80%;
+    height: 100%;
+}
+
+.heading-box {
+    padding: 10px 20px;
+    background: linear-gradient(102.2deg, rgb(250, 45, 66) 9.6%, rgb(245, 104, 104) 96.1%);
+}
+
+.campList-container {
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 221px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.campList-card {
+    background-color: #FEFAF6;
+    cursor: pointer;
+    transition: 400ms;
+    border-radius: 5px;
+}
+
+.campList-card:hover {
+    transform: scale(1, 1);
+}
+
+.campList-container:hover>.campList-card:not(:hover) {
+    filter: blur(5px);
+    transform: scale(0.9, 0.9);
+}
+
+.campList-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Legislative bill page css  */
+
+.legis-main {
+    gap: 15px !important;
+}
+
+.legisTable-container,
+.subuserTable-container {
+    background-color: #fff;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+
+.table_header {
+    color: #1e1e1e;
+    padding-bottom: 0 !important;
+}
+
+.table_body {
+    background-color: #fffb;
+    border-radius: .6rem;
+}
+
+.table_body thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.table_body thead tr th {
+    padding: 1rem;
+}
+
+.table_body thead tr {
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+    color: #fff;
+}
+
+.table_body tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+.table_body tbody tr:hover {
+    background-color: #fff6;
+}
+
+.table_body tbody tr td {
+    vertical-align: middle;
+}
+
+/* Subscribed User page css  */
+
+.subuser-section {
+    gap: 22px;
+}
+
+
+/* Edit Subscribed User page css  */
+
+.editSubUser-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.editSubUserForm-container {
+    background-color: #d3d3d3;
+    padding: 35px 30px;
+}
+
+.editsubuser-inp-grp input {
+    width: 100%;
+    height: 50px !important;
+    margin-bottom: 10px;
+}
+
+/* Create Subscribed User popup css  */
+
+.createSubUser-popup {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 999999999;
+    transition: all .5s ease-in-out
+}
+
+
+.createSubUser-form {
+    background-color: #d3d3d3;
+    padding: 35px 30px;
+}
+
+.createUser-grp input {
+    width: 100%;
+    height: 50px !important;
+}
+
+#popup-close {
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* Create campaign mail css  */
+
+.createCampMail-section {
+    height: fit-content !important;
+}
+
+.createCamp-container {
+    background-color: #d3d3d3;
+    width: 60% !important;
+}
+
+.createCamp-mail {
+    padding: 20px 25px;
+}
+
+.createCamp-mail-grp input {
+    width: 100%;
+    height: 50px;
+}
+
+.createCamp-mail-grp input[type='textarea'] {
+    resize: none;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div id="background"></div>
+
+    <section id="main">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid nav-box">
+                <a class="navbar-brand" href="/dashboard">
+                    Pulse <span class="highlight">A</span>dvocacy
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars fa-lg"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/campaigns">Campaigns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/legislativeBills">Legislative Bills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/subscribedUsers">Subscribed Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Middle Container -->
+        <section id="middle-section">
+            <div class="camp-container">
+                <div class="heading-box">
+                    <h3 class="text-white text-center m-0">Campaign List</h3>
+                </div>
+
+                <div class="campList-container">
+                    <% campaigns.forEach(campaign=> { %>
+                        <div class="campList-card p-3">
+                            <p><strong>To: </strong>
+                                <%= campaign.to.join(', ') %></p>
+                            <p><strong>Subject:</strong> <%= campaign.subject %></p>
+                            <p class="m-0"><strong>Date:</strong> <%= campaign.dateTime %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+        
+            <!-- Footer -->
+            <footer class="footer">
+                &copy; 2024 Pulse Advocacy. All rights reserved.
+            </footer>
+            
+            <!-- jQuery and Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </section>
+</body>
+</html>

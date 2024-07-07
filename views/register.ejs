@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+
+    <main>
+        <h1>Pulse <span class="highlight">A</span>dvocacy</h1>
+
+        <div class="register-container">
+            <h2 class="mb-4">Register</h2>
+            <form action="/register" method="post">
+                <input type="text" name="firstName" class="border-input" placeholder="First Name" required><br>
+                <input type="text" name="lastName" class="border-input" placeholder="Last Name" required><br>
+                <input type="email" name="email" class="border-input" placeholder="Email" required><br>
+                <input type="text" name="username" class="border-input" placeholder="Username" required><br>
+                <input type="password" name="password" class="border-input" placeholder="Password" required><br>
+                <button type="submit" class="animated-btn">Register</button>
+            </form>
+            <div class="login-link">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <title>Subscribed Users</title>
+</head>
+<body>
+    <div id="background"></div>
+    <section id="main">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid nav-box">
+                <a class="navbar-brand" href="/dashboard">
+                    Pulse <span class="highlight">A</span>dvocacy
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars fa-lg"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/campaigns">Campaigns</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/legislativeBills">Legislative Bills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/subscribedUsers">Subscribed Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Middle Container with Subscribed Users -->
+
+        <section id="middle-section" class="subuser-section">
+            <div class="subuser-container d-flex flex-column justify-content-center ">
+                <div class="heading-box d-flex justify-content-between align-items-center pb-3">
+                    <h3 class="text-white m-0">Subscribed User's</h3>
+
+                    <button class="animated-btn" id="popup-active" style="width: fit-content;">Create New User</button>
+                </div>
+
+                <div class="subuserTable-container table-responsive h-100 ">
+                    <table class="table table_body mb-0 h-100 ">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Iterate over subscribed users and populate table rows -->
+                            <% subscribedUsers.forEach(user=> { %>
+                                <tr>
+                                    <td>
+                                        <%= user.firstName %>
+                                    </td>
+                                    <td>
+                                        <%= user.lastName %>
+                                    </td>
+                                    <td>
+                                        <%= user.email %>
+                                    </td>
+                                    <td>
+                                        <%= user.city %>
+                                    </td>
+                                    <td style="width: 0;">
+                                        <div class="d-flex align-items-center" style="gap: 15px">
+                                            <a href="/subscribedUsers/edit/<%= user._id %>" class="del-btn">
+                                                <span class="del-btn_text">Edit</span>
+                                                <span class="del-btn_icon"><i class="fa-solid fa-pencil"></i></span>
+                                            </a>
+                                            
+                                            <form action="/subscribedUsers/delete/<%= user._id %>" method="POST"
+                                                style="display: inline;">
+                                                <button type="submit" class="del-btn">
+                                                    <span class="del-btn_text">Delete</span>
+                                                    <span class="del-btn_icon"><i class="fa-solid fa-trash"></i></span>
+                                                </button>
+                                                <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="createSubUser-popup">
+            <div class="heading-box d-flex justify-content-between align-items-center py-4">
+                <h3 class="text-white m-0">Create Subscribed User</h3>
+                <span id="popup-close"><i class="fa-solid fa-xmark fa-lg"></i></span>
+            </div>
+            <div class="createSubUser-form">
+                <form action="/subscribedUsers/create" method="POST" class="d-flex flex-column" style="gap: 20px;"> <!-- Corrected action -->
+                    
+                    <div class="createUser-grp">
+                        <input type="text" name="firstName" placeholder="First Name" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="lastName" placeholder="Last Name" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="email" name="email" placeholder="Email" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="address1" placeholder="Address Line 1" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="address2" placeholder="Address Line 2" class="border-input">
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="city" placeholder="City" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="pincode" placeholder="Pincode" class="border-input" required>
+                    </div>
+
+                    <div class="createUser-grp">
+                        <input type="text" name="country" placeholder="Country" class="border-input" required>
+                    </div>
+
+                    <button type="submit" class="animated-btn">Create User</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            &copy; 2024 Pulse Advocacy. All rights reserved.
+        </footer>
+
+        <!-- jQuery and Bootstrap JS -->
+        <script src="/custom.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
